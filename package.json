@@ -1,5 +1,5 @@
 {
-  "name": "publish-test-shokorep",
+  "name": "@shokorep/publish-test-shokorep",
   "version": "1.0.1",
   "description": "npm publish test",
   "main": "index.js",
@@ -22,5 +22,9 @@
     "url": "https://github.com/shokorep/publish-test-shokorep/issues"
   },
   "homepage": "https://github.com/shokorep/publish-test-shokorep#readme",
-  "dependencies": {}
+  "dependencies": {},
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com/"
+  }
 }

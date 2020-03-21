@@ -27,7 +27,15 @@ jobs:
           key: ${{ runner.os }}-node-${{ env.CACHE_VERSION }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-${{ env.CACHE_VERSION }}-
-      - name: Login
-        run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
       - name: publish
-        run: npm publish --access=public
+        run: |
+          npx can-npm-publish --verbose && npm publish || echo "Does not publish"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: package-version-to-git-tag
+        uses: pkgdeps/action-package-version-to-git-tag@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_repo: ${{ github.repository }}
+          git_commit_sha: ${{ github.sha }}
+          git_tag_prefix: "v"
