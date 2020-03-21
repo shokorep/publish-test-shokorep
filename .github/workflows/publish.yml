@@ -31,6 +31,3 @@ jobs:
         run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
       - name: publish
         run: npm publish --access=public
-      - name: Logout
-        run: npm logout
-      
