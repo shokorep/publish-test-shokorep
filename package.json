@@ -1,0 +1,26 @@
+{
+  "name": "publish-test-shokorep",
+  "version": "1.0.0",
+  "description": "npm publish test",
+  "main": "index.js",
+  "bin": "bin/shokorep",
+  "scripts": {
+    "test": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shokorep/publish-test-shokorep.git"
+  },
+  "keywords": [
+    "shokorep",
+    "publish",
+    "test"
+  ],
+  "author": "shokorep",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shokorep/publish-test-shokorep/issues"
+  },
+  "homepage": "https://github.com/shokorep/publish-test-shokorep#readme",
+  "dependencies": {}
+}
