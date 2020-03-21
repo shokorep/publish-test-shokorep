@@ -28,7 +28,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-${{ env.CACHE_VERSION }}-
       - name: Login
-        run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+        run: cd publish-test-shokorep && echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
       - name: publish
         run: npm publish --access=public
       - name: Logout
