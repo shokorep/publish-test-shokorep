@@ -32,13 +32,13 @@ jobs:
           npx can-npm-publish --verbose && npm publish || echo "Does not publish"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: package-version-to-git-tag
-        uses: pkgdeps/action-package-version-to-git-tag@v1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          github_repo: ${{ github.repository }}
-          git_commit_sha: ${{ github.sha }}
-          git_tag_prefix: "v"
+      # - name: package-version-to-git-tag
+      #   uses: pkgdeps/action-package-version-to-git-tag@v1
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     github_repo: ${{ github.repository }}
+      #     git_commit_sha: ${{ github.sha }}
+      #     git_tag_prefix: "v"
       # GitHub Packages への公開のために.npmrcファイルをセットアップ
       # - uses: actions/setup-node@v1
       #   with:
