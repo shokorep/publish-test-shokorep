@@ -39,30 +39,30 @@ jobs:
       #     github_repo: ${{ github.repository }}
       #     git_commit_sha: ${{ github.sha }}
       #     git_tag_prefix: "v"
+      # # GitHub Packages への公開のために.npmrcファイルをセットアップ
+      # - uses: actions/setup-node@v1
+      #   with:
+      #     node-version: '12'
+      # # GitHub Packagesへの公開
+      # - run: npx can-npm-publish --verbose && npm publish
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # npmへの公開のために.npmrcファイルをセットアップ
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+      - run: npm install
+      # npmへの公開
+      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+      - run: cat ~/.npmrc
+      - run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       # GitHub Packages への公開のために.npmrcファイルをセットアップ
       - uses: actions/setup-node@v1
         with:
           node-version: '12'
       # GitHub Packagesへの公開
-      - run: npx can-npm-publish --verbose && npm publish
+      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   # npmへの公開のために.npmrcファイルをセットアップ
-      # - uses: actions/setup-node@v1
-      #   with:
-      #     node-version: '12'
-      # - run: npm install
-      # # npmへの公開
-      # - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-      # - run: cat ~/.npmrc
-      # - run: npm publish --access public
-      #   env:
-      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      # GitHub Packages への公開のために.npmrcファイルをセットアップ
-      # - uses: actions/setup-node@v1
-      #   with:
-      #     node-version: '12'
-      # # GitHub Packagesへの公開
-      # - run: npm publish
-      #   env:
-      #     NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
