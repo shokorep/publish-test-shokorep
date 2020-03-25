@@ -42,8 +42,7 @@ jobs:
         # npmへの公開のために.npmrcファイルをセットアップ
       - uses: actions/setup-node@v1
         with:
-          node-version: 12.x
-          registry-url: 'https://registry.npmjs.org'
+          node-version: '12'
       - run: npm install
       # npmへの公開
       - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
@@ -54,8 +53,7 @@ jobs:
       # GitHub Packages への公開のために.npmrcファイルをセットアップ
       - uses: actions/setup-node@v1
         with:
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@shokorep' # Defaults to the user or organization that owns the workflow file
+          node-version: '12'
       # GitHub Packagesへの公開
       - run: npm publish
         env:
