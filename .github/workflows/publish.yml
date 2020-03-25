@@ -42,7 +42,7 @@ jobs:
         # npmへの公開のために.npmrcファイルをセットアップ
       - uses: actions/setup-node@v1
         with:
-          node-version: '10.x'
+          node-version: '12'
           registry-url: 'https://registry.npmjs.org'
       - run: npm install
       # npmへの公開
