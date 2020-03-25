@@ -24,7 +24,7 @@
   "homepage": "https://github.com/shokorep/publish-test-shokorep#readme",
   "dependencies": {},
   "publishConfig": {
-    "access": "restricted",
+    "access": "public",
     "registry": "https://npm.pkg.github.com/"
   }
 }
