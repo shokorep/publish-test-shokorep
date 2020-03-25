@@ -54,7 +54,8 @@ jobs:
       # GitHub Packages への公開のために.npmrcファイルをセットアップ
       - uses: actions/setup-node@v1
         with:
-          node-version: '12'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@shokorep'
       # GitHub Packagesへの公開
       - run: npm publish
         env:
