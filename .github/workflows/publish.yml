@@ -39,6 +39,14 @@ jobs:
       #     github_repo: ${{ github.repository }}
       #     git_commit_sha: ${{ github.sha }}
       #     git_tag_prefix: "v"
+      # GitHub Packages への公開のために.npmrcファイルをセットアップ
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+      # GitHub Packagesへの公開
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         # npmへの公開のために.npmrcファイルをセットアップ
       - uses: actions/setup-node@v1
         with:
@@ -51,10 +59,10 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       # GitHub Packages への公開のために.npmrcファイルをセットアップ
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '12'
-      # GitHub Packagesへの公開
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - uses: actions/setup-node@v1
+      #   with:
+      #     node-version: '12'
+      # # GitHub Packagesへの公開
+      # - run: npm publish
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
