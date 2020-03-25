@@ -27,36 +27,18 @@ jobs:
           key: ${{ runner.os }}-node-${{ env.CACHE_VERSION }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-${{ env.CACHE_VERSION }}-
-      # - name: publish
-      #   run: |
-      #     npx can-npm-publish --verbose && npm publish || echo "Does not publish"
-      #   env:
-      #     NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-       # package-version-to-git-tag
-      # - name: package-version-to-git-tag
-      #   uses: pkgdeps/action-package-version-to-git-tag@v1
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     github_repo: ${{ github.repository }}
-      #     git_commit_sha: ${{ github.sha }}
-      #     git_tag_prefix: "v"
-        # npmへの公開のために.npmrcファイルをセットアップ
       - uses: actions/setup-node@v1
         with:
           node-version: '12'
       - run: npm install
-      # npmへの公開
       - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-      - run: cat ~/.npmrc
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      # GitHub Packages への公開のために.npmrcファイルをセットアップ
       - uses: actions/setup-node@v1
         with:
           registry-url: 'https://npm.pkg.github.com'
           scope: '@shokorep'
-      # GitHub Packagesへの公開
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
