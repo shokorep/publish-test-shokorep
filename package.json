@@ -22,9 +22,5 @@
     "url": "https://github.com/shokorep/publish-test-shokorep/issues"
   },
   "homepage": "https://github.com/shokorep/publish-test-shokorep#readme",
-  "dependencies": {},
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://npm.pkg.github.com/"
-  }
+  "dependencies": {}
 }
