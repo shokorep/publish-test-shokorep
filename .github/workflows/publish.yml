@@ -41,7 +41,7 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           REPO: ${{github.repository}}
           COMMIT: ${{github.sha}}
-        run: ./release.sh
+        run: cat package.json && ./release.sh
       - run: npm install
       - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
       - run: npm publish --access public
