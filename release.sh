@@ -2,11 +2,13 @@
 
 # check this version is enable to release or not
 npx can-npm-publish
+cat package.json
 if [ $? -eq 1 ] ; then
   exit 255
 fi
 
 # get current version from package.json
+cat package.json
 TAG=$(cat package.json | grep version | cut -d " " -f 4 | tr -d "," | tr -d '"')
 echo "add new tag to GitHub: ${TAG}"
 
