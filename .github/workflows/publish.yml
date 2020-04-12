@@ -34,8 +34,8 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           REPO: ${{github.repository}}
           COMMIT: ${{github.sha}}
-        run: cd docs/typeA && ls && chmod +x ../../release.sh && cat package.json
-      - run: npm install
+        run: cd docs/typeA && ls && chmod +x ../../release.sh && cat package.json && npm install && npm info @shokorep/publish-test-shokorep version
+      # - run: npm install
       - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
       - run: npm publish --access public
         env:
