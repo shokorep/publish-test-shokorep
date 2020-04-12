@@ -20,18 +20,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      # - name: Cache dependencies
-      #   uses: actions/cache@v1
-      #   with:
-      #     path: ~/.npm
-      #     key: ${{ runner.os }}-node-${{ env.CACHE_VERSION }}-${{ hashFiles('**/package-lock.json') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-node-${{ env.CACHE_VERSION }}-
-      # - name: update package version
-      # - run: npm version patch
-      # - uses: actions/setup-node@v1
-      #   with:
-      #     node-version: '12'
       - name: make package.json
         run: |
           cp docs/template.json docs/typeA/package.json
@@ -39,7 +27,7 @@ jobs:
           cd docs && npm ci
       - name: install can-npm-publish and dependencies
         run: |
-          npm install can-npm-publish
+          cd docs/typeA && npm install can-npm-publish
           npm ci
       - name: check version and add tag
         env:

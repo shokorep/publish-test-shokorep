@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # check this version is enable to release or not
+echo 000000
 npx can-npm-publish
+echo 1111111
 cat package.json
 if [ $? -eq 1 ] ; then
   exit 255
