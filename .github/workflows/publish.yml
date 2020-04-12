@@ -34,7 +34,7 @@ jobs:
       #     node-version: '12'
       - name: make package.json
         run: |
-          cp docs/templage.json docs/typeA/package.json
+          cp docs/template.json docs/typeA/package.json
           cat docs/typeA/package.json
           cd docs && npm ci
       - name: install can-npm-publish and dependencies
