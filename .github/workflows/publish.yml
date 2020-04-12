@@ -35,9 +35,14 @@ jobs:
           REPO: ${{github.repository}}
           COMMIT: ${{github.sha}}
         run: cd docs/typeA && ls && chmod +x ../../release.sh && cat package.json && npm install && npm info @shokorep/publish-test-shokorep version
+      - run: ls
+      - name: confirm
+        run: |
+          cd docs/typeA
+          ls
       # - run: npm install
       - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-      - run: npm publish --access public
+      - run: ls && npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - uses: actions/setup-node@v1

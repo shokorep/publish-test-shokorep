@@ -1,6 +1,6 @@
 {
-    "name": "@shokorep/sample",
-    "version": "1.0.0",
+    "name": "@shokorep/typeA",
+    "version": "${ver}",
     "description": "npm publish test",
     "main": "index.js",
     "bin": "bin/shokorep",
