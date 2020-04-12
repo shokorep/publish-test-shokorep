@@ -29,9 +29,9 @@ jobs:
       #       ${{ runner.os }}-node-${{ env.CACHE_VERSION }}-
       # - name: update package version
       # - run: npm version patch
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '12'
+      # - uses: actions/setup-node@v1
+      #   with:
+      #     node-version: '12'
       - name: install can-npm-publish and dependencies
         run: |
           npm install can-npm-publish
