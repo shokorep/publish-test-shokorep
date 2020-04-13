@@ -8,7 +8,6 @@
       "type": "git",
       "url": "git+https://github.com/shokorep/publish-test-shokorep.git"
     },
-    "author": "shokorep",
     "license": "MIT",
     "bugs": {
       "url": "https://github.com/shokorep/publish-test-shokorep/issues"
