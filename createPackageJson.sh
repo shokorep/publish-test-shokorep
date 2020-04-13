@@ -1,6 +1,6 @@
 #!/bin/bash
 # PACKAGE=typeB
-echo $PACKAGE
+echo $1
 VER=`npm info @shokorep/$PACKAGE version` || VER=1.0.0
 echo set $PACKAGE version to $VER
 # cat docs/template.json | ver=123 envsubst 
