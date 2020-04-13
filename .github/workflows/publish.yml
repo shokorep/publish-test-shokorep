@@ -23,8 +23,10 @@ jobs:
       - name: create package.json
         run: |
           chmod +x ./createPackageJson.sh typeA
-          cd docs/typeA
+      - name: directory
+        run: |
           ls
+          cd docs/typeA && ls
       # - name: make package.json
       #   run: |
       #     cp docs/template.json docs/typeA/package.json
