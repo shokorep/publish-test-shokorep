@@ -22,7 +22,7 @@ jobs:
           node-version: 12.x
       - name: create package.json
         run: |
-          chmod +x ./createPackageJson.sh typeA
+          chmod a=rwx ./createPackageJson.sh typeA
       - name: directory
         run: |
           ls
