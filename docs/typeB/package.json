@@ -1,13 +1,18 @@
 {
-    "name": "@shokorep/$package",
-    "version": "$ver",
-    "description": "API Type definitions for $package",
+    "name": "@shokorep/typeB",
+    "version": "1.0.0",
+    "description": "API Type definitions for typeB",
     "main": "",
     "scripts": {},
     "repository": {
       "type": "git",
       "url": "git+https://github.com/shokorep/publish-test-shokorep.git"
     },
+    "keywords": [
+      "shokorep",
+      "publish",
+      "test"
+    ],
     "author": "shokorep",
     "license": "MIT",
     "bugs": {

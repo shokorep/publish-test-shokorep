@@ -20,26 +20,31 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - name: make package.json
+      - name: create package.json
         run: |
-          cp docs/template.json docs/typeA/package.json
-          cat docs/typeA/package.json
-          cd docs && npm ci
-      - run: ls
-      - name: confirm
-        run: |
+          chmod +x PACKAGE=typeA ./createPackageJson.sh
           cd docs/typeA
           ls
-      - name: install can-npm-publish and dependencies
-        run: |
-          cd docs/typeA && npm install can-npm-publish
-          npm ci
-      - name: check version and add tag
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          REPO: ${{github.repository}}
-          COMMIT: ${{github.sha}}
-        run: cd docs/typeA && ls && chmod +x ../../release.sh && cat package.json && npm install && npm info @shokorep/publish-test-shokorep version
+      # - name: make package.json
+      #   run: |
+      #     cp docs/template.json docs/typeA/package.json
+      #     cat docs/typeA/package.json
+      #     cd docs && npm ci
+      # - run: ls
+      # - name: confirm
+      #   run: |
+      #     cd docs/typeA
+      #     ls
+      # - name: install can-npm-publish and dependencies
+      #   run: |
+      #     cd docs/typeA && npm install can-npm-publish
+      #     npm ci
+      # - name: check version and add tag
+      #   env:
+      #     GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      #     REPO: ${{github.repository}}
+      #     COMMIT: ${{github.sha}}
+      #   run: cd docs/typeA && ls && chmod +x ../../release.sh && cat package.json && npm install && npm info @shokorep/publish-test-shokorep version
       # - run: npm install
       - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
       - run: ls && npm publish --access public
