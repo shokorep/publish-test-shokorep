@@ -3,7 +3,8 @@ name: Publish
 on:
   push:
     branches:
-      - 'master'
+      # - 'master'
+      - 'test'
     
 env:
   CACHE_VERSION: v1
@@ -20,6 +21,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
+      - name: check branch
+        run: git symbolic-ref --short HEAD
       - name: catch diff
         run: |
           a=`git diff`
