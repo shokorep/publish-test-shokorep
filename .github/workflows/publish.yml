@@ -22,7 +22,7 @@ jobs:
           node-version: 12.x
       - name: catch diff
         run: |
-          a=git diff
+          a=`git diff`
           echo aaaa $a aaaa
           git diff --name-only
           echo bbbb
