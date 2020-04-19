@@ -20,6 +20,15 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
+      - name: catch diff
+        run: |
+          git diff
+          echo aaaa
+          git diff --name-only
+          echo bbbb
+          git diff --diff-filter=d
+          echo cccc
+          git diff --diff-filter=d --name-only
       - name: create package.json
         run: |
           chmod a=rwx ./createPackageJson.sh typeA
