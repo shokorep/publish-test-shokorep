@@ -1,5 +1,6 @@
 {
     "company": "string",
     "date": "string",
-    "test": "string"
+    "test": "string",
+    "test2": "string"
 }
