@@ -20,45 +20,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - name: catch diff
-        run: |
-          git diff
-          echo aaaa
-          git diff --name-only
-          echo bbbb
-          git diff --diff-filter=d
-          echo cccc
-          git diff --diff-filter=d --name-only
-      - name: create package.json
-        run: |
-          chmod a=rwx ./createPackageJson.sh typeA
-      - name: directory
-        run: |
-          ls
-          cd docs/typeA && ls
-      # - name: make package.json
-      #   run: |
-      #     cp docs/template.json docs/typeA/package.json
-      #     cat docs/typeA/package.json
-      #     cd docs && npm ci
-      # - run: ls
-      # - name: confirm
-      #   run: |
-      #     cd docs/typeA
-      #     ls
-      # - name: install can-npm-publish and dependencies
-      #   run: |
-      #     cd docs/typeA && npm install can-npm-publish
-      #     npm ci
-      # - name: check version and add tag
-      #   env:
-      #     GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      #     REPO: ${{github.repository}}
-      #     COMMIT: ${{github.sha}}
-      #   run: cd docs/typeA && ls && chmod +x ../../release.sh && cat package.json && npm install && npm info @shokorep/publish-test-shokorep version
-      # - run: npm install
       - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-      - run: ls && npm publish --access public
+      - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - uses: actions/setup-node@v1
