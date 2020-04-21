@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 'master'
+      - 'test'
     
 env:
   CACHE_VERSION: v1
